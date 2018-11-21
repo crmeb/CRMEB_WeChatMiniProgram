@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/loading/loading",
     "pages/load/load",
     "pages/login-status/login-status",
     "pages/payment/payment",
