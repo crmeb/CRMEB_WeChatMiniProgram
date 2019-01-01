@@ -102,7 +102,7 @@ Page({
         that.setData({
           userstatus: '立即使用',
           couponArray: res.data.data,
-          title: "没有数据了",
+          title: "没有优惠券了",
           loadinghidden: true
         })
       }
@@ -125,7 +125,7 @@ Page({
         that.setData({
           userstatus: '立即领取',
           couponArray: res.data.data,
-          title: "没有数据了",
+          title: "没有优惠券了",
           loadinghidden: true
         })
       }

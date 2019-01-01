@@ -11,7 +11,7 @@
  */
 
 .wxParse{
-    margin: 0 5px;
+    margin: 0 5rpx;
     font-family: Helvetica,sans-serif;
     font-size: 28rpx;
     color: #666;
@@ -19,7 +19,7 @@
 }
 view{
     word-break:break-all;
-    margin-bottom: -5rpx;
+    margin-bottom: -8rpx;
 }
 .wxParse-inline{
     display: inline;

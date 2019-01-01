@@ -13,7 +13,7 @@ use app\routine\model\user\UserBill;
 use app\routine\model\user\WechatUser;
 use basic\ModelBasic;
 use service\SystemConfigService;
-use service\WechatTemplateService;
+use service\RoutineTemplateService;
 use think\Url;
 use traits\ModelTrait;
 
@@ -152,7 +152,7 @@ class StorePink extends ModelBasic
     public static function orderPinkAfter($uidAll,$pid){
 //         foreach ($uidAll as $v){
 //             $openid = WechatUser::uidToOpenid($v);
-//             WechatTemplateService::sendTemplate($openid,WechatTemplateService::ORDER_USER_GROUPS_SUCCESS,[
+//             RoutineTemplateService::sendTemplate($openid,RoutineTemplateService::ORDER_USER_GROUPS_SUCCESS,[
 //                 'first'=>'亲，您的拼团已经完成了',
 //                 'keyword1'=> self::where('id',$pid)->whereOr('k_id',$pid)->where('uid',$v)->value('order_id'),
 //                 'keyword2'=> self::alias('p')->where('p.id',$pid)->whereOr('p.k_id',$pid)->where('p.uid',$v)->join('__STORE_COMBINATION__ c','c.id=p.cid')->value('c.title'),
@@ -175,7 +175,7 @@ class StorePink extends ModelBasic
      */
     public static function orderPinkAfterNo($uid,$pid){
             $openid = WechatUser::uidToOpenid($uid);
-            WechatTemplateService::sendTemplate($openid,WechatTemplateService::ORDER_USER_GROUPS_LOSE,[
+            RoutineTemplateService::sendTemplate($openid,RoutineTemplateService::ORDER_USER_GROUPS_LOSE,[
                 'first'=>'亲，您的拼团失败',
                 'keyword1'=> self::alias('p')->where('p.id',$pid)->whereOr('p.k_id',$pid)->where('p.uid',$uid)->join('__STORE_COMBINATION__ c','c.id=p.cid')->value('c.title'),
                 'keyword2'=> self::where('id',$pid)->whereOr('k_id',$pid)->where('uid',$uid)->value('price'),

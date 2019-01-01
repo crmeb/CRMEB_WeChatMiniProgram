@@ -10,7 +10,7 @@ namespace app\routine\model\user;
 
 use basic\ModelBasic;
 use service\SystemConfigService;
-use service\WechatTemplateService;
+use service\RoutineTemplateService;
 use think\Url;
 use traits\ModelTrait;
 use app\routine\model\user\WechatUser;

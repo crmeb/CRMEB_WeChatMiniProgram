@@ -285,32 +285,7 @@
                                         </ul>
                                     </div>
                                 </th>
-                                <th class="text-center">
-                                    <div class="btn-group">
-                                        <button data-toggle="dropdown" class="btn btn-white btn-xs dropdown-toggle" style="font-weight: bold;background-color: #f5f5f6;border: solid 0;"
-                                                aria-expanded="false">是否关注公众号
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu search-item" data-name="subscribe">
-                                            <li data-value="">
-                                                <a class="save_mark" href="javascript:void(0);"  >
-                                                    全部
-                                                </a>
-                                            </li>
-                                            <li data-value="1">
-                                                <a class="save_mark" href="javascript:void(0);"  >
-                                                    关注
-                                                </a>
-                                            </li>
-                                            <li data-value="0">
-                                                <a class="save_mark" href="javascript:void(0);">
-                                                    未关注
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </th>
-                                <th class="text-center">推广二维码</th>
+
                                 <th class="text-center">累计提现金额</th>
                                 <th class="text-center">可提现金额</th>
                                 <th class="text-center">提现次数</th>
@@ -375,20 +350,7 @@
                                             {$vo.now_money}
                                         </button>
                                     </td>
-                                    <td class="text-center">
-                                        {if condition="$vo['subscribe']"}
-                                        关注
-                                        {else/}
-                                        未关注
-                                        {/if}
-                                    </td>
-                                    <td class="text-center">
-                                        {if condition="$vo['user_type'] eq 'routine'"}
-                                           暂无
-                                        {else/}
-                                           <img src="{$vo.qr_code.url}" alt="{$vo.nickname}" title="{$vo.nickname}" style="width:50px;height: 50px;cursor: pointer;" class="head_image" data-image="{$vo.qr_code.url}">
-                                        {/if}
-                                    </td>
+
                                     <td class="text-center">
                                         {$vo.extract_count_price}
                                     </td>

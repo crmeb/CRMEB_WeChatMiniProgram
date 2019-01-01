@@ -16,7 +16,7 @@ App({
     openPages:'',
     spid:0,
     urlImages: '',
-    url: 'https://shop.crmeb.net/'
+    url: 'https://maya.shandaershoushichang.cn'
   },
   getRoutineStyle:function(){
     var that = this;

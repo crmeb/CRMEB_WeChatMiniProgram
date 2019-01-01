@@ -14,7 +14,7 @@ use app\admin\model\wechat\WechatUser;
 use think\Url;
 use traits\ModelTrait;
 use basic\ModelBasic;
-use service\WechatTemplateService;
+use service\RoutineTemplateService;
 /**
  * 用户提现管理 model
  * Class User
@@ -52,7 +52,7 @@ class UserExtract extends ModelBasic
         UserBill::income('提现失败',$uid,'now_money','extract',$extract_number,$id,$User['now_money'],$mark);
 
         User::bcInc($uid,'now_money',$extract_number,'uid');
-        WechatTemplateService::sendTemplate(WechatUser::uidToOpenid($uid),WechatTemplateService::USER_BALANCE_CHANGE,[
+        RoutineTemplateService::sendTemplate(WechatUser::uidToOpenid($uid),RoutineTemplateService::USER_BALANCE_CHANGE,[
             'first'=> $mark,
             'keyword1'=>'佣金提现',
             'keyword2'=>date('Y-m-d H:i:s',time()),
@@ -69,7 +69,7 @@ class UserExtract extends ModelBasic
         $extract_number=$data['extract_price'];
         $mark='成功提现佣金'.$extract_number.'元';
         $uid=$data['uid'];
-        WechatTemplateService::sendTemplate(WechatUser::uidToOpenid($uid),WechatTemplateService::USER_BALANCE_CHANGE,[
+        RoutineTemplateService::sendTemplate(WechatUser::uidToOpenid($uid),RoutineTemplateService::USER_BALANCE_CHANGE,[
             'first'=> $mark,
             'keyword1'=>'佣金提现',
             'keyword2'=>date('Y-m-d H:i:s',time()),

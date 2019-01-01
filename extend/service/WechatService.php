@@ -9,7 +9,7 @@ namespace service;
 
 use app\admin\model\wechat\WechatMessage;
 use behavior\wechat\MessageBehavior;
-use behavior\wechat\PaymentBehavior;
+use behavior\routine\PaymentBehavior;
 use EasyWeChat\Foundation\Application;
 use EasyWeChat\Message\Article;
 use EasyWeChat\Message\Image;

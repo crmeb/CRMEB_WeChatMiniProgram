@@ -6,7 +6,7 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: honor <rongyao_xu@163.com>
+// | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
 return [
@@ -15,11 +15,11 @@ return [
     // 服务器地址
     'hostname'        => 'localhost',
     // 数据库名
-    'database'        => 'gitcrmeb',
+    'database'        => 'demo25xcx_crmeb',
     // 用户名
-    'username'        => 'gitcrmeb',
+    'username'        => 'demo25xcx_crmeb',
     // 密码
-    'password'        => 'y3NfiJTjRp8PNeee',
+    'password'        => 'zBerrkhQWAYx6i2Q',
 
     // 端口
     'hostport'        => '3306',

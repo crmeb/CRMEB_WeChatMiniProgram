@@ -102,3 +102,29 @@ alter table eb_store_order modify column is_channel tinyint(1) comment '支付�
 
 -- 客服通知
 ALTER TABLE `eb_store_service` ADD `notify` INT(2) NULL DEFAULT '0' COMMENT '订单通知1开启0关闭' AFTER `status`;
+
+--2018-11-26 更新
+ALTER TABLE `eb_user` CHANGE COLUMN `phone` `phone` char(15) COMMENT '手机号码';
+ALTER TABLE `eb_store_product` CHANGE COLUMN `is_bargain` `is_bargain`TINYINT(1) UNSIGNED NULL COMMENT '砍价状态 0未开启 1开启';
+ALTER TABLE `eb_store_seckill` CHANGE COLUMN `description` `description`TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '内容';
+ALTER TABLE `eb_store_bargain` CHANGE COLUMN `add_time` `add_time` INT(11)UNSIGNED NULL COMMENT '添加时间';
+ALTER TABLE `eb_store_combination` CHANGE  `attr` `attr`VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '活动属性';
+ALTER TABLE `eb_store_combination` CHANGE COLUMN `mer_use` `mer_use`TINYINT(1) UNSIGNED NULL COMMENT '商户是否可用1可用0不可用';
+ALTER TABLE `eb_store_product_reply` CHANGE COLUMN `merchant_reply_content` `merchant_reply_content` VARCHAR(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '管理员回复内容';
+ALTER TABLE `eb_store_product_reply` CHANGE COLUMN  `merchant_reply_time` `merchant_reply_time` INT(11) NULL COMMENT '管理员回复时间';
+ALTER TABLE `eb_store_cart` CHANGE COLUMN `combination_id` `combination_id` INT(11) UNSIGNED NULL DEFAULT '0' COMMENT '拼团id';
+ALTER TABLE `eb_store_order` CHANGE COLUMN `combination_id` `combination_id` int(11) UNSIGNED DEFAULT '0' COMMENT '拼团产品id0一般产品';
+
+--海报表新增
+DROP TABLE IF EXISTS `eb_routine_qrcode`;
+CREATE TABLE `eb_routine_qrcode` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '微信二维码ID',
+  `third_type` varchar(32) NOT NULL COMMENT '二维码类型 spread(用户推广) product_spread(产品推广)',
+  `third_id` int(11) unsigned NOT NULL COMMENT '用户id',
+  `status` tinyint(1) unsigned DEFAULT '1' COMMENT '状态 0不可用 1可用',
+  `add_time` varchar(255) DEFAULT NULL COMMENT '添加时间',
+  `page` varchar(255) DEFAULT NULL COMMENT '小程序页面路径带参数',
+  `qrcode_url` varchar(255) DEFAULT NULL COMMENT '小程序二维码路径',
+  `url_time` int(11) unsigned DEFAULT NULL COMMENT '二维码添加时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='小程序二维码管理表';

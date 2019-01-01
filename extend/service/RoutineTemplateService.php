@@ -104,15 +104,23 @@ class RoutineTemplateService{
      * @return bool|mixed
      */
     public static function sendTemplate($openId = '',$templateId = '',$link = '',$dataKey = array(),$formId = '',$emphasisKeyword = ''){
-        if($openId == '' || $templateId == '' || $formId == '') return false;
-        $accessToken = RoutineServer::get_access_token();
-        $url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=".$accessToken;
-        $data['touser'] =  $openId;//接收者（用户）的 openid
-        $data['template_id'] =  $templateId; //所需下发的模板消息的id
-        $data['page'] =  $link; //点击模板卡片后的跳转页面，仅限本小程序内的页面。支持带参数,（示例index?foo=bar）。该字段不填则模板无跳转。
-        $data['form_id'] =  $formId; //	表单提交场景下，为 submit 事件带上的 formId；支付场景下，为本次支付的 prepay_id
-        $data['data'] =  $dataKey;  //模板内容，不填则下发空模板
-        $data['emphasis_keyword'] =  $emphasisKeyword;  //模板需要放大的关键词，不填则默认无放大
-        return json_decode(RoutineServer::curlPost($url,json_encode($data)),true);
+        $templateId = Db::name('RoutineTemplate')->where('tempkey',$templateId)->where('status',1)->value('tempid');
+        if(!$templateId) return false;
+        else $templateId = $templateId;
+        try{
+            if($openId == '' || $templateId == '' || $formId == '') return false;
+            $accessToken = RoutineServer::get_access_token();
+            $url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=".$accessToken;
+            $data['touser'] =  $openId;//接收者（用户）的 openid
+            $data['template_id'] =  $templateId; //所需下发的模板消息的id
+            $data['page'] =  $link; //点击模板卡片后的跳转页面，仅限本小程序内的页面。支持带参数,（示例index?foo=bar）。该字段不填则模板无跳转。
+            $data['form_id'] =  $formId; //	表单提交场景下，为 submit 事件带上的 formId；支付场景下，为本次支付的 prepay_id
+            $data['data'] =  $dataKey;  //模板内容，不填则下发空模板
+            $data['emphasis_keyword'] =  $emphasisKeyword;  //模板需要放大的关键词，不填则默认无放大
+            return json_decode(RoutineServer::curlPost($url,json_encode($data)),true);
+        }catch (\Exception $e){
+            return false;
+        }
+
     }
 }

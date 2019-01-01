@@ -12,7 +12,10 @@
     <link href="{__FRAME_PATH}css/animate.min.css" rel="stylesheet">
     <link href="{__FRAME_PATH}css/style.min.css?v=3.0.0" rel="stylesheet">
     <script>
-        top != window && (top.location.href = location.href);
+        if (window != top && ("undefined" == typeof doNotCheckHref)) {
+            top.location.href = window.location.href;
+        }
+//        top != window && (top.location.href = location.href);
     </script>
 </head>
 <body class="gray-bg login-bg">

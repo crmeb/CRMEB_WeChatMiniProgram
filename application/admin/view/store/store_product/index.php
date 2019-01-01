@@ -71,7 +71,7 @@
                     <div class="layui-btn-container">
                         {switch name='type'}
                             {case value="1"}
-                                <button class="layui-btn layui-btn-sm" onclick="$eb.createModalFrame(this.innerText,'{:Url('create')}',{h:760,w:900})">添加产品</button>
+                                <button class="layui-btn layui-btn-sm" onclick="$eb.createModalFrame(this.innerText,'{:Url('create')}',{h:760,w:1100})">添加产品</button>
                             {/case}
                             {case value="2"}
                                 <button class="layui-btn layui-btn-sm" data-type="show">批量上架</button>
@@ -98,7 +98,7 @@
                     <!--产品名称-->
                     <script type="text/html" id="store_name">
                         <h4>{{d.store_name}}</h4>
-                        <p>价格:{{d.price}}</p>
+                        <p>价格:<font color="red">{{d.price}}</font> </p>
                         {{# if(d.cate_name!=''){ }}
                         <p>分类:{{d.cate_name}}</p>
                         {{# } }}
@@ -110,7 +110,7 @@
                         <button type="button" class="layui-btn layui-btn-xs btn-success" onclick="$eb.createModalFrame('{{d.store_name}}-属性','{:Url('attr')}?id={{d.id}}',{h:700,w:800})">
                             属性
                         </button>
-                        <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" onclick="$eb.createModalFrame('{{d.store_name}}-编辑','{:Url('edit')}?id={{d.id}}')">
+                        <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" onclick="$eb.createModalFrame('{{d.store_name}}-编辑','{:Url('edit')}?id={{d.id}}',{h:760,w:1100})">
                             编辑
                         </button>
                         <button type="button" class="layui-btn layui-btn-xs" onclick="dropdown(this)">操作 <span class="caret"></span></button>
@@ -159,24 +159,23 @@
         switch (parseInt(type)){
             case 1:case 3:case 4:case 5:
                 join=[
-                    {field: 'id', title: 'ID', sort: true,event:'id',width:'4%'},
-                    {field: 'image', title: '产品图片',templet:'#image'},
+                    {field: 'id', title: 'ID', sort: true,event:'id',width:'6%'},
+                    {field: 'image', title: '产品图片',templet:'#image',width:'10%'},
                     {field: 'store_name', title: '产品名称',templet:'#store_name'},
-                    {field: 'price', title: '产品价格',edit:'price'},
-                    {field: 'ficti', title: '虚拟销量',edit:'ficti'},
-                    {field: 'stock', title: '库存',edit:'stock'},
-                    {field: 'sort', title: '排序',edit:'sort'},
-                    {field: 'sales', title: '销量',sort: true,event:'sales'},
-                    {field: 'collect', title: '点赞',templet:'#like'},
-                    {field: 'like', title: '收藏',templet:'#collect'},
-                    {field: 'status', title: '状态',templet:"#checkboxstatus"},
-                    {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'10%'},
+                    {field: 'ficti', title: '虚拟销量',edit:'ficti',width:'8%'},
+                    {field: 'stock', title: '库存',edit:'stock',width:'8%'},
+                    {field: 'sort', title: '排序',edit:'sort',width:'6%'},
+                    {field: 'sales', title: '销量',sort: true,event:'sales',width:'8%'},
+                    {field: 'collect', title: '点赞',templet:'#like',width:'6%'},
+                    {field: 'like', title: '收藏',templet:'#collect',width:'6%'},
+                    {field: 'status', title: '状态',templet:"#checkboxstatus",width:'8%'},
+                    {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'14%'},
                 ];
                 break;
             case 2:
                 join=[
                     {type:'checkbox'},
-                    {field: 'id', title: 'ID', sort: true,event:'id',width:'4%'},
+                    {field: 'id', title: 'ID', sort: true,event:'id',width:'5%'},
                     {field: 'image', title: '产品图片',templet:'#image'},
                     {field: 'store_name', title: '产品名称',templet:'#store_name'},
                     {field: 'price', title: '产品价格',edit:'price'},
@@ -185,7 +184,7 @@
                     {field: 'sort', title: '排序',edit:'sort'},
                     {field: 'sales', title: '销量',sort: true,event:'sales'},
                     {field: 'status', title: '状态',templet:"#checkboxstatus"},
-                    {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'10%'},
+                    {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'14%'},
                 ];
                 break;
             case 6:
@@ -199,7 +198,7 @@
                     {field: 'sort', title: '排序',edit:'sort'},
                     {field: 'sales', title: '销量',sort: true,event:'sales'},
                     {field: 'status', title: '状态',templet:"#checkboxstatus"},
-                    {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'10%'},
+                    {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'14%'},
                 ];
                 break;
         }

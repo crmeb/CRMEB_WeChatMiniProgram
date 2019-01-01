@@ -2,16 +2,16 @@
 namespace app\admin\controller\finance;
 use app\admin\controller\AuthController;
 use app\admin\model\user\UserRecharge as UserRechargeModel;
-use app\wap\model\user\UserBill;
+use app\routine\model\user\UserBill;
 use service\UtilService as Util;
 use service\JsonService as Json;
 use think\Url;
 use service\FormBuilder as Form;
 use think\Request;
 use service\HookService;
-use behavior\wechat\PaymentBehavior;
-use service\WechatTemplateService;
-use app\wap\model\user\WechatUser as WechatUserWap;
+use behavior\routine\PaymentBehavior;
+use service\RoutineTemplateService;
+use app\routine\model\user\WechatUser as WechatUserWap;
 /**
  * 微信充值记录
  * Class UserRecharge
@@ -75,7 +75,7 @@ class UserRecharge extends AuthController
             return Json::fail($e->getMessage());
         }
         UserRechargeModel::edit($data,$id);
-        WechatTemplateService::sendTemplate(WechatUserWap::uidToOpenid($UserRecharge['uid']),WechatTemplateService::ORDER_REFUND_STATUS, [
+        RoutineTemplateService::sendTemplate(WechatUserWap::uidToOpenid($UserRecharge['uid']),RoutineTemplateService::ORDER_REFUND_STATUS, [
             'first'=>'亲，您充值的金额已退款,本次退款'.
                 $data['refund_price'].'金额',
             'keyword1'=>$UserRecharge['order_id'],

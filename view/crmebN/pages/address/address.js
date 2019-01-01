@@ -33,11 +33,11 @@ Page({
              addressP.city = res.cityName;
              addressP.district = res.countyName;
              wx.request({
-               url: app.globalData.url + '/routine/auth_api/edit_user_address?uid=' + app.globalData.uid,
+               url: app.globalData.url + '/routine/auth_api/edit_user_address?uid=' + app.globalData.uid + '&openid=' + app.globalData.openid,
                method: 'POST',
                data: {
                  address: addressP,
-                 is_default: 0,
+                 is_default: 1,
                  real_name: res.userName,
                  post_code: res.postalCode,
                  phone: res.telNumber,
@@ -85,25 +85,14 @@ Page({
       header: header,
       success: function (res) {
         if (res.data.code == 200) {
-          if (res.data.data.length < 1) {
-            wx.showToast({
-              title: '暂无收货地址，请先添加收货地址',
-              icon: 'none',
-              duration: 1000,
-            })
-            setTimeout(function () {
-              that.addAddress();
-            }, 1100)
-          } else {
-            that.setData({
-              addressArray: res.data.data
-            })
-            for (var i in res.data.data){
-              if (res.data.data[i].is_default){
-                that.setData({
-                  _num: res.data.data[i].id
-                })
-              }
+          that.setData({
+            addressArray: res.data.data
+          })
+          for (var i in res.data.data) {
+            if (res.data.data[i].is_default) {
+              that.setData({
+                _num: res.data.data[i].id
+              })
             }
           }
         }
