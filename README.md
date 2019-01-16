@@ -24,11 +24,6 @@
 </tr>
 </table>
 
-##   :tw-1f340: 演示地址:tw-1f340:
-   演示站后台:
-<a href='http://demo25.crmeb.net' target="_blank">http://demo25.crmeb.net</a>
-   账号：demo
-   密码：crmeb.com
 <div align="center">
 <table><tr><td><img src='https://images.gitee.com/uploads/images/2018/0828/182854_beba4aed_892944.png'/><br>公众号</td><td><img src='https://images.gitee.com/uploads/images/2018/0828/182909_cb2a5e64_892944.png'/><br>小程序</td></tr></table>
 </div>
@@ -46,29 +41,12 @@ QQ群: 116279623
 联系微信：sugar1569
 联系电话：400-8888-794
 
-##  特别鸣谢
-感谢以下的项目,排名不分先后
-
-ThinkPHP：http://www.thinkphp.cn
-
-Bootstrap：http://getbootstrap.com
-
-jQuery：http://jquery.com
-
-iView：https://www.iviewui.com
-
-Vue：https://cn.vuejs.org/
-
-font-awesome： https://fontawesome.com/?from=io
-
-umeditor：http://ueditor.baidu.com/website/umeditor.html
-
 
 版权信息
 CRMEB v2.5.* 遵循MIT开源协议发布，并提供免费使用。
 
 本项目包含的第三方源码和二进制文件之版权信息另行标注。
 
-版权所有Copyright © 2017-2018 by CRMEB (http://www.crmeb.com)
+版权所有Copyright © 2017-2018 by CRMEB 
 
 All rights reserved。
